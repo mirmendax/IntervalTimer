@@ -1,0 +1,7 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/AssemblyExplorer/XmlDocument/@EntryValue">&lt;AssemblyExplorer&gt;&#xD;
+  &lt;Assembly Path="C:\Users\mirme\RiderProjects\IntervalTimer\IntervalTimerLib\obj\Debug\Interop.MediaPlayer.dll" /&gt;&#xD;
+&lt;/AssemblyExplorer&gt;</s:String>
+	
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=_041D_0435_043F_0440_0430_0432_0435_043B_044C_043D_044B_0439/@EntryIndexedValue">True</s:Boolean>
+	<s:Boolean x:Key="/Default/UserDictionary/Words/=_041F_0435_0440_0435_0445_043E_0434_043D_043E_0439/@EntryIndexedValue">True</s:Boolean></wpf:ResourceDictionary>

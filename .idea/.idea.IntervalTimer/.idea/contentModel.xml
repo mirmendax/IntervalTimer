@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\mirme\.Rider2019.3\config\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\mirme\.Rider2019.3\config\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\mirme\.Rider2019.3\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\mirme\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_IntervalTimer.1458607919.00" t="ExcludeRecursive" />
+    <e p="C:\Users\mirme\RiderProjects\IntervalTimer" t="IncludeFlat">
+      <e p="IntervalTimer.sln" t="IncludeFlat" />
+      <e p="IntervalTimerForm" t="IncludeRecursive">
+        <e p="App.config" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Form1.cs" t="Include" />
+        <e p="Form1.Designer.cs" t="Include" />
+        <e p="Form1.resx" t="Include" />
+        <e p="IntervalTimerForm.csproj" t="IncludeRecursive" />
+        <e p="NotificationForm.cs" t="Include" />
+        <e p="NotificationForm.Designer.cs" t="Include" />
+        <e p="NotificationForm.resx" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+          <e p="Resources.Designer.cs" t="Include" />
+          <e p="Resources.resx" t="Include" />
+          <e p="Settings.Designer.cs" t="Include" />
+          <e p="Settings.settings" t="Include" />
+        </e>
+      </e>
+      <e p="IntervalTimerLib" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="IntervalTimer.cs" t="Include" />
+        <e p="IntervalTimerLib.csproj" t="IncludeRecursive" />
+        <e p="ITime.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="packages.config" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="Settings.cs" t="Include" />
+        <e p="SettingsContext.cs" t="Include" />
+        <e p="Time.cs" t="Include" />
+      </e>
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="TestTimer" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="obj" t="ExcludeRecursive" />
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="AssemblyInfo.cs" t="Include" />
+        </e>
+        <e p="TestTimer.csproj" t="IncludeRecursive" />
+      </e>
+    </e>
+  </component>
+</project>
