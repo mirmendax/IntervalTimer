@@ -26,6 +26,7 @@
           <e p="Settings.Designer.cs" t="Include" />
           <e p="Settings.settings" t="Include" />
         </e>
+        <e p="timer_stopwatch_setting_options_preferences_icon_124604.ico" t="Include" />
       </e>
       <e p="IntervalTimerLib" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />

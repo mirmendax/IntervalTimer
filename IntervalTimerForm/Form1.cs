@@ -21,11 +21,15 @@ namespace WindowsFormsApp1
         private static IntervalTimer _intervalTimerList;
         private Task TimerStartTask { get; set; }
 
+        private const int HeightMax = 343;
+        private const int HeightMin = 200;
+        
         public Form1()
         {
             InitializeComponent();
             mtbTransitTimer.Enabled = cbTransit.Checked;
-            this.Size = new Size(this.Size.Width, 200);
+            
+            this.Size = new Size(this.Size.Width, HeightMin);
         }
 
         private async void StopTimers()
@@ -52,11 +56,12 @@ namespace WindowsFormsApp1
             _isSettings = !_isSettings;
             if (_isSettings)
             {
-                this.Size = new Size(this.Size.Width, 343);
+                
+                this.Size = new Size(this.Size.Width, HeightMax);
             }
             else
             {
-                this.Size = new Size(this.Size.Width, 200);
+                this.Size = new Size(this.Size.Width, HeightMin);
             }
         }
 
@@ -139,8 +144,17 @@ namespace WindowsFormsApp1
                 setContext.Settings.IsTransitTimer, setContext.Settings.TransitTimer);
             _intervalTimerList.IntervalTimerIsDone += (o, args) =>
             {
-                StopTimers(); 
+                StopTimers();
+            };
+            _intervalTimerList.TimerIsDone += (o, args) =>
+            {
+                var showForm = new Task(() =>
+                {
+                    var notificationForm = new NotificationForm();
+                    notificationForm.ShowDialog();
                 
+                });
+                showForm.Start();
             };
 
             lCountTimers.Text = $"1/{_intervalTimerList.MaxCount}";
@@ -219,7 +233,7 @@ namespace WindowsFormsApp1
             }
         }
         //Stop button click
-        private async void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             StopTimers();
             //timer1.Enabled = false;
@@ -241,8 +255,7 @@ namespace WindowsFormsApp1
 
         private void button6_Click(object sender, EventArgs e)
         {
-            var form = new NotificationForm();
-            form.Show();
+            
         }
     }
 }

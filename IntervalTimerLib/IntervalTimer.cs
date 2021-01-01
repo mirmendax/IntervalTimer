@@ -28,6 +28,7 @@ namespace IntervalTimerLib
         public bool isDone = false;
 
         public event EventHandler IntervalTimerIsDone;
+        public event EventHandler TimerIsDone;
         
 
         public bool IsTransitTime { get; set; }
@@ -39,10 +40,7 @@ namespace IntervalTimerLib
             
             foreach (var timer in timers)
             {
-                timer.TimerIsDone += (o, e) =>
-                {
-                    // TODO
-                };
+                timer.TimerIsDone += (o, e) => { TimerIsDone?.Invoke(o,e); };
                 _timers.Add(timer);
             }
             IsTransitTime = isTransitTime;
@@ -88,6 +86,7 @@ namespace IntervalTimerLib
                         await Task.Delay(1000);
                         TransitTime.Tick();
                     }
+                    
 
                     if ((count + 1) != MaxCount)
                         TransitTime.Reset();

@@ -16,7 +16,8 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             var size = Screen.PrimaryScreen.Bounds.Size;
-            Location = new Point(size.Width-Size.Width-10,size.Height-Size.Height-40);
+            Location = new Point(size.Width-Size.Width-10,
+                size.Height-Size.Height-40);
 
         }
 
