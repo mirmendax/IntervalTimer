@@ -142,17 +142,17 @@ namespace WindowsFormsApp1
             }
             _intervalTimerList = new IntervalTimer(setContext.Settings.ListTimers, 
                 setContext.Settings.IsTransitTimer, setContext.Settings.TransitTimer);
-            _intervalTimerList.IntervalTimerIsDone += (o, args) =>
+            _intervalTimerList.OnIntervalTimersIsDone += (o, args) =>
             {
                 StopTimers();
             };
-            _intervalTimerList.TimerIsDone += (o, args) =>
+            _intervalTimerList.OnCurrentTimerIsDone += (o, args) =>
             {
                 var showForm = new Task(() =>
                 {
-                    var notificationForm = new NotificationForm();
-                    notificationForm.ShowDialog();
-                
+                    using (var notificationForm = new NotificationForm())
+                        notificationForm.ShowDialog();
+
                 });
                 showForm.Start();
             };

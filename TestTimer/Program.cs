@@ -21,7 +21,7 @@ namespace TestTimer
             
             interval.IsTransitTime = true;
             interval.TransitTime = new Time(0, 0, 5);
-            interval.IntervalTimerIsDone += (sender, eventArgs) => 
+            interval.OnIntervalTimersIsDone += (sender, eventArgs) => 
                 Console.WriteLine("End all timers"); 
             interval.Start();
             //var set = GetSettings();

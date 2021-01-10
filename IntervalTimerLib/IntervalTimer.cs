@@ -18,17 +18,19 @@ namespace IntervalTimerLib
 
         public int MaxCount => _timers.Count;
 
-        private int count = 0;
+        private int _count = 0;
 
         public int Count
         {
-            get { return count; }
+            get { return _count; }
         }
 
-        public bool isDone = false;
+/*
+        public bool IsDone = false;
+*/
 
-        public event EventHandler IntervalTimerIsDone;
-        public event EventHandler TimerIsDone;
+        public event EventHandler OnIntervalTimersIsDone;
+        public event EventHandler OnCurrentTimerIsDone;
         
 
         public bool IsTransitTime { get; set; }
@@ -40,7 +42,7 @@ namespace IntervalTimerLib
             
             foreach (var timer in timers)
             {
-                timer.TimerIsDone += (o, e) => { TimerIsDone?.Invoke(o,e); };
+                timer.TimerIsDone += (o, e) => { OnCurrentTimerIsDone?.Invoke(o,e); };
                 _timers.Add(timer);
             }
             IsTransitTime = isTransitTime;
@@ -66,15 +68,15 @@ namespace IntervalTimerLib
         
         public async Task Start()
         {
-            while (!(count == MaxCount) && !Cancel)
+            while (!(_count == MaxCount) && !Cancel)
             {
                
                 
                 await PlaySound();
-                while (!_timers[count].IsDone && !Cancel)
+                while (!_timers[_count].IsDone && !Cancel)
                 {
                     await Task.Delay(1000);
-                    _timers[count].Tick();
+                    _timers[_count].Tick();
                 }
                 await PlaySound();
                 if (IsTransitTime)
@@ -88,37 +90,46 @@ namespace IntervalTimerLib
                     }
                     
 
-                    if ((count + 1) != MaxCount)
+                    if ((_count + 1) != MaxCount)
                         TransitTime.Reset();
                 }
-                
-                
-                count++;
+
+                if ((_count + 1) < MaxCount)
+                    _count++;
+                else break;
 
             }
 
-            count = MaxCount - 1;
-            IntervalTimerIsDone?.Invoke(this, EventArgs.Empty);
+            _count = MaxCount - 1;
+            OnIntervalTimersIsDone?.Invoke(this, EventArgs.Empty);
         }
 
         public void Reset()
         {
-            count = MaxCount;
+            _count = MaxCount;
             foreach (var timer in _timers)
             {
                 timer.Reset();
             }
 
-            count = 0;
+            _count = 0;
             TransitTime.Reset();
             Cancel = false;
         }
 
-        public Time CurrentTimer => _timers?[count];
+        public Time CurrentTimer
+        {
+            get
+            {
+                if (_timers != null && _count < MaxCount && _count >= 0)
+                    return _timers?[_count];
+                return null;
+            }
+        }
 
         public override string ToString()
         {
-            return $"{count}/{MaxCount}";
+            return $"{_count}/{MaxCount}";
         }
     }
 }
